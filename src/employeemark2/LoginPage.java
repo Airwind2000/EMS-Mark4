@@ -245,6 +245,7 @@ public class LoginPage extends javax.swing.JFrame {
         //checks to see if prior data exists in a file titled "employee.ser" If no such file is found, a file is created.
         if (new File("employee.ser").exists()) {
             EmployeeInfo.deserialize();
+            
         } else {
             EmployeeInfo.serialize();
             System.out.println("No file found; new file created");

@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DecimalFormat;
 import javax.swing.JTable;
 import java.util.*;
 import javax.swing.table.DefaultTableModel;
@@ -235,6 +236,7 @@ public ArrayList<EmployeeInfo> preSerialize(hashTable originalTable){
                         salary = (emp.getHourlyWage() * emp.getHoursPerWeek() * emp.getWeeksPerYear());
                     } else {
                         salary = (emp.getHourlyWage() * emp.getHoursPerWeek() * emp.getWeeksPerYear()) * ((100 - emp.getDeductionsRate())/ 100);
+                        salary = (java.lang.Math.round(salary * 100) / 100.0);
                     }
                     model.addRow(new Object[]{emp.getFirstName(), emp.getLastName(), emp.getEmployeeNumber(), "Part Time", salary});
                 } else if (buckets[i].get(n) instanceof FTE) {
@@ -244,6 +246,7 @@ public ArrayList<EmployeeInfo> preSerialize(hashTable originalTable){
                         salary = (emp.getYearlySalary());
                     } else {
                         salary = (emp.getYearlySalary()) * ((100 - emp.getDeductionsRate())/ 100);
+                        salary = (java.lang.Math.round(salary * 100) / 100.0);
                     }
                     model.addRow(new Object[]{emp.getFirstName(), emp.getLastName(), emp.getEmployeeNumber(), "Full Time", salary});
                 } else {

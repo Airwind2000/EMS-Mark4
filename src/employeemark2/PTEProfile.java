@@ -37,7 +37,9 @@ public class PTEProfile extends javax.swing.JFrame {
         wkyrE.setText(Double.toString(initEmp.getWeeksPerYear()));
         hrwkE.setText(Double.toString(initEmp.getHoursPerWeek()));
         drateE.setText(Double.toString(initEmp.getDeductionsRate()));
-        netincE.setText(Double.toString(initEmp.getHourlyWage() * initEmp.getHoursPerWeek() * initEmp.getWeeksPerYear() * ((100 - initEmp.getDeductionsRate()) / 100)));
+        double netinc = initEmp.getHourlyWage() * initEmp.getHoursPerWeek() * initEmp.getWeeksPerYear() * ((100 - initEmp.getDeductionsRate()) / 100);
+        netinc = (java.lang.Math.round(netinc * 100) / 100.0);
+        netincE.setText(Double.toString(netinc));
         if (initEmp.getSex() == 0) {
             sexE.setText("Male");
         }
@@ -349,7 +351,7 @@ public class PTEProfile extends javax.swing.JFrame {
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
         LoginPage.getHashTable().removeFromTable(foundEmp.getEmployeeNumber());
-        JOptionPane.showMessageDialog(null, "Successfully removed " + foundEmp.getFirstName() + foundEmp.getLastName());
+        JOptionPane.showMessageDialog(null, "Successfully removed " + foundEmp.getFirstName() + " " + foundEmp.getLastName());
         LoginPage.getHashTable().fillTable(employeeTable);
         this.dispose();
     }//GEN-LAST:event_removeButtonActionPerformed

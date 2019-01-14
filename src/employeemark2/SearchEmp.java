@@ -7,6 +7,7 @@ package employeemark2;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -144,6 +145,11 @@ public class SearchEmp extends javax.swing.JFrame {
                 enumfieldActionPerformed(evt);
             }
         });
+        enumfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                enumfieldKeyPressed(evt);
+            }
+        });
 
         enumSearch.setText("Search");
         enumSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +202,11 @@ public class SearchEmp extends javax.swing.JFrame {
                 fNfieldActionPerformed(evt);
             }
         });
+        fNfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fNfieldKeyPressed(evt);
+            }
+        });
 
         fNsearchButton.setText("Search");
         fNsearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +220,11 @@ public class SearchEmp extends javax.swing.JFrame {
         lNfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lNfieldActionPerformed(evt);
+            }
+        });
+        lNfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lNfieldKeyPressed(evt);
             }
         });
 
@@ -444,6 +460,7 @@ public class SearchEmp extends javax.swing.JFrame {
 
     private void exitButtonTopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonTopActionPerformed
         this.dispose();
+        LoginPage.getHashTable().fillTable(employeeTable);
     }//GEN-LAST:event_exitButtonTopActionPerformed
 
     private void enumfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enumfield1ActionPerformed
@@ -465,7 +482,7 @@ public class SearchEmp extends javax.swing.JFrame {
         enumfield.setText("");
         lNfield.setText("");
         ArrayList<EmployeeInfo> results = LoginPage.getHashTable().fNsearch(fNfield.getText());
-        if (results!= null){
+        if (results.size()!= 0){
             resultsTable.setVisible(true);
             DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
             model.setRowCount(0);
@@ -478,6 +495,7 @@ public class SearchEmp extends javax.swing.JFrame {
         } else {
             message.setText("No employees matching your criteria were found");
             message.setVisible(true);
+            System.out.println(message);
             
         }
         
@@ -495,7 +513,7 @@ public class SearchEmp extends javax.swing.JFrame {
         enumfield.setText("");
         fNfield.setText("");
         ArrayList<EmployeeInfo> results = LoginPage.getHashTable().lNsearch(lNfield.getText());
-        if (results!= null){
+        if (results.size()!= 0){
             resultsTable.setVisible(true);
             DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
             model.setRowCount(0);
@@ -558,6 +576,98 @@ public class SearchEmp extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_resultsTableDoubleClickTable
+
+    private void enumfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enumfieldKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            //search by enum
+        message.setText("");
+        message.setVisible(false);
+        fNfield.setText("");
+        lNfield.setText("");
+        DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
+        model.setRowCount(0);
+        try {
+            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(enumfield.getText()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "There was an error performing the search, make sure you are using the proper search parameters.");
+            return;
+        }
+        
+        //checks if employee is in table by checking hashtable by employee number
+        //if employee is found, provides options: View Profile, edit, remove etc
+        if (foundEmp == null) {
+            message.setText("This employee number is not in the database");
+            message.setVisible(true);
+        } else {
+            model.addRow(new Object[]{foundEmp.getFirstName(), foundEmp.getLastName(), foundEmp.getEmployeeNumber()});
+            resultsTable.setVisible(true);
+            message.setText(foundEmp.getFirstName() + " " + foundEmp.getLastName() + " is in the system.");
+            message.setVisible(true);
+            editEmployee.setVisible(true);
+            removeButton.setVisible(true);
+            viewProfile.setVisible(true);
+        }
+        }
+
+    }//GEN-LAST:event_enumfieldKeyPressed
+
+    private void fNfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fNfieldKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                message.setText("");
+                message.setVisible(false);
+                enumfield.setText("");
+                lNfield.setText("");
+                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().fNsearch(fNfield.getText());
+                if (results.size()!= 0){
+                    resultsTable.setVisible(true);
+                    DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
+                    model.setRowCount(0);
+                    for (int i = 0; i < results.size(); i++){
+                        model.addRow(new Object[]{results.get(i).getFirstName(), results.get(i).getLastName(), results.get(i).getEmployeeNumber()});
+                    }
+                    editEmployee.setVisible(true);
+                    removeButton.setVisible(true);
+                    viewProfile.setVisible(true);
+                } else {
+                    message.setText("No employees matching your criteria were found");
+                    message.setVisible(true);
+                    System.out.println(message);
+
+                }
+             
+         }
+
+    }//GEN-LAST:event_fNfieldKeyPressed
+
+    private void lNfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lNfieldKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                message.setText("");
+                message.setVisible(false);
+                enumfield.setText("");
+                fNfield.setText("");
+                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().lNsearch(lNfield.getText());
+                if (results.size()!= 0){
+                    resultsTable.setVisible(true);
+                    DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
+                    model.setRowCount(0);
+                    for (int i = 0; i < results.size(); i++){
+                        model.addRow(new Object[]{results.get(i).getFirstName(), results.get(i).getLastName(), results.get(i).getEmployeeNumber()});
+                    }
+                    editEmployee.setVisible(true);
+                    removeButton.setVisible(true);
+                    viewProfile.setVisible(true);
+                } else {
+                    message.setText("No employees matching your criteria were found");
+                    message.setVisible(true);
+
+                }
+             
+         }
+        
+    }//GEN-LAST:event_lNfieldKeyPressed
 
     /**
      * @param args the command line arguments

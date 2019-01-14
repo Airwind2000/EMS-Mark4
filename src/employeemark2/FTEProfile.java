@@ -33,7 +33,9 @@ private static JTable employeeTable;
         enumE.setText(Integer.toString(initEmp.getEmployeeNumber()));
         yrsalE.setText(Double.toString(initEmp.getYearlySalary()));
         drateE.setText(Double.toString(initEmp.getDeductionsRate()));
-        netincE.setText(Double.toString(initEmp.getYearlySalary()*((100 - initEmp.getDeductionsRate())/ 100)));
+        double netinc = initEmp.getYearlySalary()*((100 - initEmp.getDeductionsRate())/ 100);
+        netinc = (java.lang.Math.round(netinc * 100) / 100.0);        
+        netincE.setText(Double.toString(netinc));
         
         //converts sex and work location which are stored as integers, into strings. 
         if (initEmp.getSex() == 0){
@@ -296,7 +298,7 @@ private static JTable employeeTable;
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
         LoginPage.getHashTable().removeFromTable(foundEmp.getEmployeeNumber());
-        JOptionPane.showMessageDialog(null, "Successfully removed " + foundEmp.getFirstName() + foundEmp.getLastName());
+        JOptionPane.showMessageDialog(null, "Successfully removed " + foundEmp.getFirstName() +" "+ foundEmp.getLastName());
         LoginPage.getHashTable().fillTable(employeeTable);
         this.dispose();
     }//GEN-LAST:event_removeButtonActionPerformed
