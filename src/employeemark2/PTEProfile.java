@@ -37,7 +37,7 @@ public class PTEProfile extends javax.swing.JFrame {
         wkyrE.setText(Double.toString(initEmp.getWeeksPerYear()));
         hrwkE.setText(Double.toString(initEmp.getHoursPerWeek()));
         drateE.setText(Double.toString(initEmp.getDeductionsRate()));
-        double netinc = initEmp.getHourlyWage() * initEmp.getHoursPerWeek() * initEmp.getWeeksPerYear() * ((100 - initEmp.getDeductionsRate()) / 100);
+        double netinc = initEmp.calcAnnualNetIncome(initEmp);
         netinc = (java.lang.Math.round(netinc * 100) / 100.0);
         netincE.setText(Double.toString(netinc));
         if (initEmp.getSex() == 0) {

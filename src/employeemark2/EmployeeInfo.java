@@ -85,16 +85,18 @@ public class EmployeeInfo implements Serializable {
         deductionsRate = dR;
     }
         //Methods
-    public void calcAnnualNetIncome (EmployeeInfo someEmp) {
+    public double calcAnnualNetIncome (EmployeeInfo someEmp) {
         if(someEmp instanceof PTE){
             PTE somePTE = (PTE)someEmp;
-            double netIncome = somePTE.getHourlyWage()*somePTE.getHoursPerWeek()*somePTE.getWeeksPerYear();
-            }
+            double netIncome = (somePTE.getHourlyWage() * somePTE.getHoursPerWeek() * somePTE.getWeeksPerYear()) * ((100 - somePTE.getDeductionsRate())/ 100);
+            return netIncome;
+        }
         if(someEmp instanceof FTE) {
             FTE someFTE = (FTE)someEmp;
-            double netIncome = someFTE.getYearlySalary();
+            double netIncome = (someFTE.getYearlySalary()) * ((100 - someFTE.getDeductionsRate())/ 100);
+            return netIncome;
         }
-    
+    return 0.0;
 }
        public static void deserialize(){
        EmployeeInfo someEmp;

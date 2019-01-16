@@ -33,7 +33,7 @@ private static JTable employeeTable;
         enumE.setText(Integer.toString(initEmp.getEmployeeNumber()));
         yrsalE.setText(Double.toString(initEmp.getYearlySalary()));
         drateE.setText(Double.toString(initEmp.getDeductionsRate()));
-        double netinc = initEmp.getYearlySalary()*((100 - initEmp.getDeductionsRate())/ 100);
+        double netinc = initEmp.calcAnnualNetIncome(initEmp);
         netinc = (java.lang.Math.round(netinc * 100) / 100.0);        
         netincE.setText(Double.toString(netinc));
         

@@ -235,7 +235,7 @@ public ArrayList<EmployeeInfo> preSerialize(hashTable originalTable){
                     if (emp.getDeductionsRate()== 0) {
                         salary = (emp.getHourlyWage() * emp.getHoursPerWeek() * emp.getWeeksPerYear());
                     } else {
-                        salary = (emp.getHourlyWage() * emp.getHoursPerWeek() * emp.getWeeksPerYear()) * ((100 - emp.getDeductionsRate())/ 100);
+                        salary = emp.calcAnnualNetIncome(emp);
                         salary = (java.lang.Math.round(salary * 100) / 100.0);
                     }
                     model.addRow(new Object[]{emp.getFirstName(), emp.getLastName(), emp.getEmployeeNumber(), "Part Time", salary});
@@ -245,7 +245,7 @@ public ArrayList<EmployeeInfo> preSerialize(hashTable originalTable){
                     if (emp.getDeductionsRate()== 0) {
                         salary = (emp.getYearlySalary());
                     } else {
-                        salary = (emp.getYearlySalary()) * ((100 - emp.getDeductionsRate())/ 100);
+                        salary = emp.calcAnnualNetIncome(emp);
                         salary = (java.lang.Math.round(salary * 100) / 100.0);
                     }
                     model.addRow(new Object[]{emp.getFirstName(), emp.getLastName(), emp.getEmployeeNumber(), "Full Time", salary});
