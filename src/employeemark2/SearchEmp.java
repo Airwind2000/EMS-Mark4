@@ -39,7 +39,7 @@ public class SearchEmp extends javax.swing.JFrame {
         foundEmp = null;
         center();
         initMouseListener();
-        enumfield.requestFocus();
+        searchParameters.requestFocus();
     }
     static Point mouseDownCompCoords;
 
@@ -97,8 +97,8 @@ public class SearchEmp extends javax.swing.JFrame {
         enumfield1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        enumfield = new javax.swing.JTextField();
-        enumSearch = new javax.swing.JButton();
+        searchParameters = new javax.swing.JTextField();
+        searchAll = new javax.swing.JButton();
         message = new javax.swing.JLabel();
         editEmployee = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
@@ -134,21 +134,21 @@ public class SearchEmp extends javax.swing.JFrame {
 
         jLabel1.setText("Search Parameters");
 
-        enumfield.addActionListener(new java.awt.event.ActionListener() {
+        searchParameters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enumfieldActionPerformed(evt);
+                searchParametersActionPerformed(evt);
             }
         });
-        enumfield.addKeyListener(new java.awt.event.KeyAdapter() {
+        searchParameters.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                enumfieldKeyPressed(evt);
+                searchParametersKeyPressed(evt);
             }
         });
 
-        enumSearch.setText("Search");
-        enumSearch.addActionListener(new java.awt.event.ActionListener() {
+        searchAll.setText("Search");
+        searchAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enumSearch(evt);
+                searchAll(evt);
             }
         });
 
@@ -233,9 +233,9 @@ public class SearchEmp extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(enumfield, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchParameters, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(enumSearch))
+                                .addComponent(searchAll))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -261,8 +261,8 @@ public class SearchEmp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(enumfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enumSearch))
+                    .addComponent(searchParameters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchAll))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
@@ -281,11 +281,11 @@ public class SearchEmp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enumfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enumfieldActionPerformed
+    private void searchParametersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchParametersActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enumfieldActionPerformed
+    }//GEN-LAST:event_searchParametersActionPerformed
 
-    private void enumSearch(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enumSearch
+    private void searchAll(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAll
         // TODO add your handling code here:
         message.setText("");
         message.setVisible(false);
@@ -293,7 +293,7 @@ public class SearchEmp extends javax.swing.JFrame {
         model.setRowCount(0);
         
         try{
-            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(enumfield.getText()));
+            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(searchParameters.getText()));
             if (foundEmp == null) {
             message.setText("This employee number is not in the database");
             message.setVisible(true);
@@ -308,7 +308,7 @@ public class SearchEmp extends javax.swing.JFrame {
         }
         }
         catch (Exception e){
-                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().nameSearch(enumfield.getText());
+                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().search(searchParameters.getText());
                 if (!results.isEmpty()){
                     model.setRowCount(0);
                     for (int i = 0; i < results.size(); i++){
@@ -326,7 +326,7 @@ public class SearchEmp extends javax.swing.JFrame {
                 }        
         }
         
-    }//GEN-LAST:event_enumSearch
+    }//GEN-LAST:event_searchAll
 
     private void editEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeActionPerformed
         // TODO add your handling code here:
@@ -441,7 +441,7 @@ public class SearchEmp extends javax.swing.JFrame {
 
     }//GEN-LAST:event_resultsTableDoubleClickTable
 
-    private void enumfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enumfieldKeyPressed
+    private void searchParametersKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchParametersKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             //search by enum
@@ -451,7 +451,7 @@ public class SearchEmp extends javax.swing.JFrame {
         model.setRowCount(0);
         
         try{
-            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(enumfield.getText()));
+            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(searchParameters.getText()));
             if (foundEmp == null) {
             message.setText("This employee number is not in the database");
             message.setVisible(true);
@@ -466,7 +466,7 @@ public class SearchEmp extends javax.swing.JFrame {
         }
         }
         catch (Exception e){
-                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().nameSearch(enumfield.getText());
+                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().nameSearch(searchParameters.getText());
                 if (!results.isEmpty()){
                     model.setRowCount(0);
                     for (int i = 0; i < results.size(); i++){
@@ -484,7 +484,7 @@ public class SearchEmp extends javax.swing.JFrame {
                 }        
         }
         }
-    }//GEN-LAST:event_enumfieldKeyPressed
+    }//GEN-LAST:event_searchParametersKeyPressed
 
     /**
      * @param args the command line arguments
@@ -523,8 +523,6 @@ public class SearchEmp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton editEmployee;
-    private javax.swing.JButton enumSearch;
-    private javax.swing.JTextField enumfield;
     private javax.swing.JTextField enumfield1;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton exitButtonTop;
@@ -536,7 +534,9 @@ public class SearchEmp extends javax.swing.JFrame {
     private javax.swing.JLabel message;
     private javax.swing.JButton removeButton;
     private javax.swing.JTable resultsTable;
+    private javax.swing.JButton searchAll;
     private javax.swing.JButton searchButton1;
+    private javax.swing.JTextField searchParameters;
     private javax.swing.JButton viewProfile;
     // End of variables declaration//GEN-END:variables
 }

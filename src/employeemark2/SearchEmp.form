@@ -68,9 +68,9 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="enumfield" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="searchParameters" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="enumSearch" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchAll" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" min="-2" pref="340" max="-2" attributes="0"/>
                       </Group>
@@ -107,8 +107,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="enumfield" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="enumSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchParameters" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchAll" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="63" max="-2" attributes="0"/>
@@ -141,18 +141,18 @@
         <Property name="text" type="java.lang.String" value="Search Parameters"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="enumfield">
+    <Component class="javax.swing.JTextField" name="searchParameters">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enumfieldActionPerformed"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="enumfieldKeyPressed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchParametersActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchParametersKeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="enumSearch">
+    <Component class="javax.swing.JButton" name="searchAll">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enumSearch"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchAll"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="message">
