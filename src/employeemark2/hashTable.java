@@ -80,49 +80,22 @@ public int getContents(){
        System.out.println("-----------------------");
    }
 */
-   public void fNlist(){
-       EmployeeInfo someEmp;
-       someEmp = new EmployeeInfo();
-        for (int bucketnum = 0; bucketnum < buckets.length; bucketnum++){
-                for (int cntrx = 0; cntrx < buckets[bucketnum].size(); cntrx++) {
-                   someEmp = buckets[bucketnum].get(cntrx);
-                   System.out.println(someEmp.getFirstName());
-                   
-               }
-       }
-       
-   }
-   
-    public ArrayList fNsearch(String fN){
-       ArrayList<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
-       EmployeeInfo someEmp;
-       someEmp = new EmployeeInfo();
-        for (int bucketnum = 0; bucketnum < buckets.length; bucketnum++){
-                for (int cntrx = 0; cntrx < buckets[bucketnum].size(); cntrx++) {
-                   someEmp = buckets[bucketnum].get(cntrx);
-                   if (someEmp.getFirstName().equals(fN)){
-                       list.add(someEmp);
-                   }                   
-               }
-       }
-        return list; 
-   }
     
-    public ArrayList lNsearch(String lN){
-       ArrayList<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
-       EmployeeInfo someEmp;
-       someEmp = new EmployeeInfo();
-        for (int bucketnum = 0; bucketnum < buckets.length; bucketnum++){
-                for (int cntrx = 0; cntrx < buckets[bucketnum].size(); cntrx++) {
-                   someEmp = buckets[bucketnum].get(cntrx);
-                   if (someEmp.getLastName().equals(lN)){
-                       list.add(someEmp);
-                   }                   
-               }
-       }
-        return list; 
-   }
     
+    public ArrayList nameSearch(String name){
+        ArrayList<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
+        EmployeeInfo someEmp;
+        someEmp = new EmployeeInfo();
+        for (int bucketnum = 0; bucketnum < buckets.length; bucketnum++){
+            for (int cntrx = 0; cntrx < buckets[bucketnum].size(); cntrx++){
+                someEmp = buckets[bucketnum].get(cntrx);
+                if (someEmp.getLastName().equals(name) || (someEmp.getFirstName().equals(name))){
+                    list.add(someEmp);
+                }
+            }
+        }
+        return list;
+    }
    
 
    public void removeFromTable(int stdNum){
@@ -165,6 +138,25 @@ public int getContents(){
        return null;
    }
    
+   
+   public ArrayList search (String name){
+       ArrayList<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
+        EmployeeInfo someEmp;
+        someEmp = new EmployeeInfo();
+        for (int bucketnum = 0; bucketnum < buckets.length; bucketnum++){
+            for (int cntrx = 0; cntrx < buckets[bucketnum].size(); cntrx++){
+                someEmp = buckets[bucketnum].get(cntrx);
+                if (someEmp.getLastName().equals(name) || (someEmp.getFirstName().equals(name))){
+                    list.add(someEmp);
+                }
+            }
+        }
+        return list;
+   }
+   
+   //public EmployeeInfo search(String fN){
+       
+  // }
    
 
    

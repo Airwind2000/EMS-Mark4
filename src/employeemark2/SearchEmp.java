@@ -105,12 +105,6 @@ public class SearchEmp extends javax.swing.JFrame {
         exitButton = new javax.swing.JButton();
         viewProfile = new javax.swing.JButton();
         exitButtonTop = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        fNfield = new javax.swing.JTextField();
-        fNsearchButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        lNfield = new javax.swing.JTextField();
-        lNsearchButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultsTable = new javax.swing.JTable();
 
@@ -138,7 +132,7 @@ public class SearchEmp extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel12.setText("Search Employee");
 
-        jLabel1.setText("Search by Employee Number");
+        jLabel1.setText("Search Parameters");
 
         enumfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,46 +189,6 @@ public class SearchEmp extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Search by First Name");
-
-        fNfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fNfieldActionPerformed(evt);
-            }
-        });
-        fNfield.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                fNfieldKeyPressed(evt);
-            }
-        });
-
-        fNsearchButton.setText("Search");
-        fNsearchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fNsearchButtonsearchPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Search by Last Name");
-
-        lNfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lNfieldActionPerformed(evt);
-            }
-        });
-        lNfield.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                lNfieldKeyPressed(evt);
-            }
-        });
-
-        lNsearchButton.setText("Search");
-        lNsearchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lNsearchButtonsearchPerformed(evt);
-            }
-        });
-
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -274,41 +228,29 @@ public class SearchEmp extends javax.swing.JFrame {
                         .addGap(254, 254, 254)
                         .addComponent(jLabel12))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
+                        .addGap(162, 162, 162)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(enumfield, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(enumSearch))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(125, 152, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(viewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(fNfield, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(fNsearchButton))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(enumfield, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(enumSearch))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lNfield, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lNsearchButton)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                            .addComponent(editEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(279, 279, 279))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,19 +263,9 @@ public class SearchEmp extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(enumfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enumSearch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(fNfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fNsearchButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lNfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lNsearchButton))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addComponent(message)
                 .addGap(18, 18, 18)
                 .addComponent(exitButton)
@@ -343,7 +275,7 @@ public class SearchEmp extends javax.swing.JFrame {
                 .addComponent(editEmployee)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removeButton)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -357,20 +289,12 @@ public class SearchEmp extends javax.swing.JFrame {
         // TODO add your handling code here:
         message.setText("");
         message.setVisible(false);
-        fNfield.setText("");
-        lNfield.setText("");
         DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
         model.setRowCount(0);
-        try {
-            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(enumfield.getText()));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "There was an error performing the search, make sure you are using the proper search parameters.");
-            return;
-        }
         
-        //checks if employee is in table by checking hashtable by employee number
-        //if employee is found, provides options: View Profile, edit, remove etc
-        if (foundEmp == null) {
+        try{
+            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(enumfield.getText()));
+            if (foundEmp == null) {
             message.setText("This employee number is not in the database");
             message.setVisible(true);
         } else {
@@ -382,6 +306,26 @@ public class SearchEmp extends javax.swing.JFrame {
             removeButton.setVisible(true);
             viewProfile.setVisible(true);
         }
+        }
+        catch (Exception e){
+                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().nameSearch(enumfield.getText());
+                if (!results.isEmpty()){
+                    model.setRowCount(0);
+                    for (int i = 0; i < results.size(); i++){
+                        model.addRow(new Object[]{results.get(i).getFirstName(), results.get(i).getLastName(), results.get(i).getEmployeeNumber()});
+                    }
+                    resultsTable.setVisible(true);
+                    editEmployee.setVisible(true);
+                    removeButton.setVisible(true);
+                    viewProfile.setVisible(true);
+                } else {
+                    message.setText("No employees matching your criteria were found");
+                    message.setVisible(true);
+                    System.out.println(message);
+
+                }        
+        }
+        
     }//GEN-LAST:event_enumSearch
 
     private void editEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeActionPerformed
@@ -471,86 +415,6 @@ public class SearchEmp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchButton1searchPerformed
 
-    private void fNfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fNfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fNfieldActionPerformed
-
-    private void fNsearchButtonsearchPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fNsearchButtonsearchPerformed
-        // TODO add your handling code here:
-        message.setText("");
-        message.setVisible(false);
-        enumfield.setText("");
-        lNfield.setText("");
-        ArrayList<EmployeeInfo> results = LoginPage.getHashTable().fNsearch(fNfield.getText());
-        if (results.size()!= 0){
-            resultsTable.setVisible(true);
-            DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
-            model.setRowCount(0);
-            for (int i = 0; i < results.size(); i++){
-                model.addRow(new Object[]{results.get(i).getFirstName(), results.get(i).getLastName(), results.get(i).getEmployeeNumber()});
-            }
-            editEmployee.setVisible(true);
-            removeButton.setVisible(true);
-            viewProfile.setVisible(true);
-        } else {
-            message.setText("No employees matching your criteria were found");
-            message.setVisible(true);
-            System.out.println(message);
-            
-        }
-        
-        
-    }//GEN-LAST:event_fNsearchButtonsearchPerformed
-
-    private void lNfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lNfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lNfieldActionPerformed
-
-    private void lNsearchButtonsearchPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lNsearchButtonsearchPerformed
-        // TODO add your handling code here:
-        message.setText("");
-        message.setVisible(false);
-        enumfield.setText("");
-        fNfield.setText("");
-        ArrayList<EmployeeInfo> results = LoginPage.getHashTable().lNsearch(lNfield.getText());
-        if (results.size()!= 0){
-            resultsTable.setVisible(true);
-            DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
-            model.setRowCount(0);
-            for (int i = 0; i < results.size(); i++){
-                model.addRow(new Object[]{results.get(i).getFirstName(), results.get(i).getLastName(), results.get(i).getEmployeeNumber()});
-            }
-            editEmployee.setVisible(true);
-            removeButton.setVisible(true);
-            viewProfile.setVisible(true);
-        } else {
-            message.setText("No employees matching your criteria were found");
-            message.setVisible(true);
-            
-        }
-        
-        
-        /*try {
-            this.foundEmp = LoginPage.getHashTable().lNsearch(lNfield.getText());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "There was an error performing the search, make sure you are using the proper search parameters.");
-            return;
-        }
-        
-        //checks if employee is in table by checking hashtable by employee number
-        //if employee is found, provides options: View Profile, edit, remove etc
-        if (foundEmp == null) {
-            message.setText("There is no employee by this last name in the database");
-            message.setVisible(true);
-        } else {
-            message.setText(foundEmp.getFirstName() + " " + foundEmp.getLastName() + " is in the system.");
-            message.setVisible(true);
-            editEmployee.setVisible(true);
-            removeButton.setVisible(true);
-            viewProfile.setVisible(true);
-        }*/
-    }//GEN-LAST:event_lNsearchButtonsearchPerformed
-
     private void resultsTableDoubleClickTable(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultsTableDoubleClickTable
         // TODO add your handling code here:
         // Shows profile of selected employee
@@ -583,20 +447,12 @@ public class SearchEmp extends javax.swing.JFrame {
             //search by enum
         message.setText("");
         message.setVisible(false);
-        fNfield.setText("");
-        lNfield.setText("");
         DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
         model.setRowCount(0);
-        try {
-            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(enumfield.getText()));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "There was an error performing the search, make sure you are using the proper search parameters.");
-            return;
-        }
         
-        //checks if employee is in table by checking hashtable by employee number
-        //if employee is found, provides options: View Profile, edit, remove etc
-        if (foundEmp == null) {
+        try{
+            this.foundEmp = LoginPage.getHashTable().search(Integer.parseInt(enumfield.getText()));
+            if (foundEmp == null) {
             message.setText("This employee number is not in the database");
             message.setVisible(true);
         } else {
@@ -609,24 +465,14 @@ public class SearchEmp extends javax.swing.JFrame {
             viewProfile.setVisible(true);
         }
         }
-
-    }//GEN-LAST:event_enumfieldKeyPressed
-
-    private void fNfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fNfieldKeyPressed
-        // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                message.setText("");
-                message.setVisible(false);
-                enumfield.setText("");
-                lNfield.setText("");
-                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().fNsearch(fNfield.getText());
-                if (results.size()!= 0){
-                    resultsTable.setVisible(true);
-                    DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
+        catch (Exception e){
+                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().nameSearch(enumfield.getText());
+                if (!results.isEmpty()){
                     model.setRowCount(0);
                     for (int i = 0; i < results.size(); i++){
                         model.addRow(new Object[]{results.get(i).getFirstName(), results.get(i).getLastName(), results.get(i).getEmployeeNumber()});
                     }
+                    resultsTable.setVisible(true);
                     editEmployee.setVisible(true);
                     removeButton.setVisible(true);
                     viewProfile.setVisible(true);
@@ -635,39 +481,10 @@ public class SearchEmp extends javax.swing.JFrame {
                     message.setVisible(true);
                     System.out.println(message);
 
-                }
-             
-         }
-
-    }//GEN-LAST:event_fNfieldKeyPressed
-
-    private void lNfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lNfieldKeyPressed
-        // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                message.setText("");
-                message.setVisible(false);
-                enumfield.setText("");
-                fNfield.setText("");
-                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().lNsearch(lNfield.getText());
-                if (results.size()!= 0){
-                    resultsTable.setVisible(true);
-                    DefaultTableModel model = (DefaultTableModel) resultsTable.getModel();
-                    model.setRowCount(0);
-                    for (int i = 0; i < results.size(); i++){
-                        model.addRow(new Object[]{results.get(i).getFirstName(), results.get(i).getLastName(), results.get(i).getEmployeeNumber()});
-                    }
-                    editEmployee.setVisible(true);
-                    removeButton.setVisible(true);
-                    viewProfile.setVisible(true);
-                } else {
-                    message.setText("No employees matching your criteria were found");
-                    message.setVisible(true);
-
-                }
-             
-         }
-        
-    }//GEN-LAST:event_lNfieldKeyPressed
+                }        
+        }
+        }
+    }//GEN-LAST:event_enumfieldKeyPressed
 
     /**
      * @param args the command line arguments
@@ -711,17 +528,11 @@ public class SearchEmp extends javax.swing.JFrame {
     private javax.swing.JTextField enumfield1;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton exitButtonTop;
-    private javax.swing.JTextField fNfield;
-    private javax.swing.JButton fNsearchButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField lNfield;
-    private javax.swing.JButton lNsearchButton;
     private javax.swing.JLabel message;
     private javax.swing.JButton removeButton;
     private javax.swing.JTable resultsTable;
