@@ -466,7 +466,7 @@ public class SearchEmp extends javax.swing.JFrame {
         }
         }
         catch (Exception e){
-                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().nameSearch(searchParameters.getText());
+                ArrayList<EmployeeInfo> results = LoginPage.getHashTable().search(searchParameters.getText());
                 if (!results.isEmpty()){
                     model.setRowCount(0);
                     for (int i = 0; i < results.size(); i++){

@@ -82,7 +82,7 @@ public int getContents(){
 */
     
     
-    public ArrayList nameSearch(String name){
+   /* public ArrayList nameSearch(String name){
         ArrayList<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
         EmployeeInfo someEmp;
         someEmp = new EmployeeInfo();
@@ -95,7 +95,7 @@ public int getContents(){
             }
         }
         return list;
-    }
+    }*/
    
 
    public void removeFromTable(int stdNum){
